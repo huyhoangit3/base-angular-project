@@ -1,0 +1,11 @@
+<a [routerLink]="['home']">Home page</a> | 
+<a [routerLink]="['logged-in-area']">Logged-in user page</a> |
+<a [routerLink]="['admin']">Admin page</a> | 
+<span *ngIf="!isLoggedIn();else loggedContent">
+    <button (click)="login()">Login</button>
+</span>
+
+<ng-template #loggedContent>
+    <span>Logged user: {{ getCurrentUser()?.username }}</span>  |
+    <button (click)="signout()">Signout</button>
+</ng-template>
